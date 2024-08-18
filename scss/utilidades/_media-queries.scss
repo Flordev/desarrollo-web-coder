@@ -1,0 +1,92 @@
+/* MEDIA QUERIES */
+
+/* Estilos para MOBILE */
+@media (max-width: 768px) {
+  .encabezado {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+
+    img {
+      display: none;
+    }
+
+    p {
+      display: none;
+    }
+  }
+
+  .secciones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    .seccion {
+      position: relative;
+      text-align: center;
+      margin: 0;
+      height: 200px;
+      overflow: hidden;
+
+      &:hover {
+        img {
+          transform: scale(1.1); 
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1s; 
+      }
+
+      h2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.2em;
+        width: 90%;
+        box-sizing: border-box;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+      }
+    }
+  }
+
+  .productos {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  form {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+
+    .ubicacion,
+    .footer-logo,
+    .social {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+      @include center-flex;
+    }
+
+    iframe {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}

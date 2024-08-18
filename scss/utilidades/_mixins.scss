@@ -1,0 +1,12 @@
+/* MIXINS */
+@mixin center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @mixin box-shadow($shadow) {
+    box-shadow: $shadow;
+  }
+  
+  

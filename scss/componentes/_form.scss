@@ -1,0 +1,47 @@
+form {
+  max-width: 600%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $form-background;
+  border-radius: 8px;
+  @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  legend {
+    color: $form-text-color;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="submit"] {
+    background-color: $button-background;
+    color: $text-color;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $button-hover-background;
+    }
+  }
+}

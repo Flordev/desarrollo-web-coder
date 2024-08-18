@@ -1,313 +1,322 @@
+/* VARIABLES */
+/* MIXINS */
 /* RESET CSS */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* ESTILOS GENERALES */
 body {
-    font-family: 'Playfair Display', serif; 
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    background-color: #000;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
 }
 
+/* FONTS */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/path/to/fonts/playfair-display.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 /* HEADER */
 header {
-    background-color: #333; 
-    padding: 10px;
-    display: grid; 
-    grid-template-columns:  1fr; 
-    align-items: center;
+  background-color: #333;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
 }
-
 header img {
-    max-height: 50px;
+  max-height: 50px;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #333;
+  padding: 20px;
+  min-height: 100px;
+  color: #fff;
+}
+footer .ubicacion, footer .social {
+  text-align: center;
+}
+footer .ubicacion p, footer .social p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+footer .social a {
+  color: #fff;
+  font-size: 30px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+footer .social a:hover {
+  color: #ccc;
+}
+footer iframe {
+  width: 200px;
+  height: 200px;
 }
 
-/* MAIN */
+form {
+  max-width: 600%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+form fieldset {
+  border: none;
+  padding: 0;
+}
+form legend {
+  color: #000;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+form input[type=text],
+form input[type=email],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+form input[type=submit] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+form input[type=submit]:hover {
+  background-color: #555;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.productos .producto:hover {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 1s;
+  transform: scale(1.1);
+}
+.productos .producto img {
+  width: 100%;
+  height: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 3%;
+}
+.productos .producto p {
+  margin-top: 10px;
+}
+
+.secciones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px auto;
+}
+.secciones .seccion:hover {
+  text-align: center;
+  margin: 20px;
+  transition: 1s;
+  transform: scale(1.1);
+}
+.secciones .seccion:hover img {
+  transform: scale(1.1);
+}
+.secciones .seccion img {
+  width: 100%;
+  height: 90%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 3%;
+  transition: 1s;
+  margin-top: 20px;
+}
+.secciones .seccion h2 {
+  font-size: 1.5em;
+  color: #fff;
+  text-decoration: none;
+}
+
 main {
-    padding: 50px;
-    text-align: center;
+  padding: 50px;
+  text-align: center;
+}
+main .encabezado {
+  position: relative;
+  text-align: center;
+}
+main .encabezado img {
+  width: 100%;
+  height: auto;
+}
+main .encabezado p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+main .quienesSomos {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+main .quienesSomos .imagen img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+main .quienesSomos .texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.encabezado {
+/* MEDIA QUERIES */
+/* Estilos para MOBILE */
+@media (max-width: 768px) {
+  .encabezado {
     position: relative;
     text-align: center;
-}
-
-.encabezado img {
+    padding: 0;
     width: 100%;
-    height: auto;
-}
-
-.encabezado p {
+  }
+  .encabezado img {
+    display: none;
+  }
+  .encabezado p {
+    display: none;
+  }
+  .secciones {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .secciones .seccion {
+    position: relative;
+    text-align: center;
+    margin: 0;
+    height: 200px;
+    overflow: hidden;
+  }
+  .secciones .seccion:hover img {
+    transform: scale(1.1);
+  }
+  .secciones .seccion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s;
+  }
+  .secciones .seccion h2 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
     padding: 10px;
     border-radius: 5px;
     font-size: 1.2em;
-}
-
-/* SECCIONES */
-.secciones {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.seccion {
-    text-align: center;
-    flex: 1;
-    margin: 10px;
-}
-
-.seccion img {
+    width: 90%;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  }
+  .productos {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  form {
     width: 100%;
-    height: auto;
-    max-width: 300px;
-}
-
-.seccion h2 {
-    font-size: 1.5em;
-    color: #fff; 
-    text-decoration: none;
-}
-
-.quienesSomos {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.imagen img {
-    width: 100%;
-    max-width: 300px; 
-    height: auto;
-}
-
-.texto {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; 
-}
-
-/* FORMULARIO DE CONTACTO */
-form {
-    width: 40%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-fieldset {
-    border: none;
-    padding: 0;
-}
-
-legend {
-    color: #000;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: calc(100% - 22px);
     padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-input[type="submit"] {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #555;
-}
-
-/* PRODUCTOS */
-.productos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.producto {
-    text-align: center;
-    display: flex;
+    box-sizing: border-box;
+  }
+  footer {
     flex-direction: column;
-    align-items: center;
-}
-
-.producto img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-}
-
-.producto p {
-    margin-top: 10px;
-}
-
-/* FOOTER */
-footer {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center; 
-    flex-wrap: wrap;
-    background-color: #333; 
-    padding: 20px;
-    min-height: 100px;
-    color: #fff;
-}
-
-.footer-logo img {
-    max-height: 50px;
-}
-
-.ubicacion, .social {
-    flex: 1;
     text-align: center;
-}
-
-.ubicacion p, .social p {
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.social a {
-    color: #fff;
-    font-size: 30px;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-.social a:hover {
-    color: #ccc;
-}
-
-iframe {
-    width: 300px;
+    justify-content: space-between;
+  }
+  footer .ubicacion,
+  footer .footer-logo,
+  footer .social {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  footer iframe {
+    width: 200px;
     height: 200px;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInDelay {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-in, header nav ul li a, .productos .producto img, main .encabezado img, main .quienesSomos .imagen img {
+  animation: fadeIn 1s ease-out forwards;
 }
 
-/* MEDIA QUERIES */
-
-/* Estilos para MOBILE */
-@media (max-width: 768px) {
-    /* ENCABEZADO */
-    .encabezado {
-        position: relative;
-        text-align:center;
-        padding: 0px;
-        width: 100%;
-    }
-
-    .encabezado img {
-        display: none;
-    }
-
-    .encabezado p {
-        display: none;
-    }
-
-    /* SECCIONES */
-    .secciones {
-        display: grid;
-        grid-template-columns: 1fr; 
-        gap: 20px;
-    }
-
-    .seccion {
-        position: relative;
-        text-align: center;
-        margin: 0;
-        height: 200px; 
-        overflow: hidden; 
-    }
-
-    .seccion img {
-        width: 100%;
-        height: 100%; 
-        object-fit: cover; 
-    }
-
-
-    .seccion h2 {
-        position: absolute; 
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.6); 
-        color: #fff;
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 1.2em;
-        width: 90%;
-        box-sizing: border-box;
-    }
-
-    /* PRODUCTOS */
-    .productos {
-        grid-template-columns: repeat(1, 1fr); 
-        grid-template-rows: repeat(auto-fit, minmax(200px, 1fr)); 
-    }
-
-    form {
-        width: 100%; 
-        padding: 10px;
-        box-sizing: border-box; 
-    }
-    
-    /* FOOTER */
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .ubicacion, .footer-logo, .social {
-        width: 100%; 
-        text-align: center; 
-        margin-bottom: 10px; 
-    }
-
-    iframe {
-        width: 100%;
-    }
+.fade-in-delay, header img, .productos .producto p, main .quienesSomos .texto {
+  animation: fadeInDelay 1s ease-out forwards;
 }
+
+/*# sourceMappingURL=style.css.map */

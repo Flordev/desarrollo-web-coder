@@ -1,0 +1,37 @@
+footer {
+  @include center-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: $footer-background;
+  padding: 20px;
+  min-height: 100px;
+  color: $footer-text-color;
+
+  .ubicacion, .social {
+    text-align: center;
+
+    p {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: $footer-text-color;
+    }
+  }
+
+  .social {
+    a {
+      color: $footer-text-color;
+      font-size: 30px;
+      margin: 0 10px;
+      text-decoration: none;
+
+      &:hover {
+        color: #ccc;
+      }
+    }
+  }
+
+  iframe {
+    width: 200px;
+    height: 200px;
+  }
+}

@@ -1,0 +1,26 @@
+/* HEADER */
+header {
+  background-color: $header-background;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  
+  img {
+    max-height: 50px;
+    @extend .fade-in-delay; // Aparece con retraso
+  }
+  
+  nav {
+    ul {
+      li {
+        a {
+          text-decoration: none;
+          color: $text-color;
+          font-weight: bold;
+          @extend .fade-in; // Aparece sin retraso
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+// Importar variables, mixins y globales
+
+@import 'utilidades/variables';
+@import 'utilidades/mixins';
+@import 'utilidades/global';
+@import 'utilidades/fonts';
+@import 'componentes/header';
+@import 'componentes/footer';
+@import 'componentes/form';
+@import 'componentes/producto';
+@import 'componentes/sections';
+@import "componentes/main";
+@import 'utilidades/media-queries'; 
+
+
+// Animaciones
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDelay {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Utilizar la animación
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.fade-in-delay {
+  animation: fadeInDelay 1s ease-out forwards;
+}
+
+  
