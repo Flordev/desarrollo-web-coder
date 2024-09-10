@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* VARIABLES */
 /* MIXINS */
 /* RESET CSS */
@@ -26,7 +27,7 @@ body {
 }
 /* HEADER */
 header {
-  background-color: #333;
+  background-color: #000;
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr;
@@ -42,43 +43,50 @@ header nav ul li a {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
   background-color: #333;
+  color: #fff;
   padding: 20px;
   min-height: 100px;
-  color: #fff;
 }
-footer .ubicacion, footer .social {
-  text-align: center;
+footer .container .row .col-md-4 {
+  flex-direction: column;
+  align-items: center;
 }
-footer .ubicacion p, footer .social p {
-  margin-bottom: 10px;
+footer .container .row .col-md-4 .footer-logo {
+  max-height: 70px;
+}
+footer .container .row .col-md-4 p {
+  margin-top: 10px;
   font-weight: bold;
   color: #fff;
 }
-footer .social a {
+footer .container .row .col-md-4 .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  max-height: 70px;
+}
+footer .container .row .col-md-4 .social a {
   color: #fff;
-  font-size: 30px;
+  font-size: 20px;
   margin: 0 10px;
   text-decoration: none;
 }
-footer .social a:hover {
+footer .container .row .col-md-4 .social a:hover {
   color: #ccc;
 }
-footer iframe {
-  width: 200px;
-  height: 200px;
+footer .container .row .col-md-4 iframe {
+  width: 150px;
+  height: 150px;
 }
 
 form {
   max-width: 600%;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #000;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -87,7 +95,7 @@ form fieldset {
   padding: 0;
 }
 form legend {
-  color: #000;
+  color: #fff;
   font-size: 1.2em;
   margin-bottom: 10px;
 }
@@ -150,31 +158,34 @@ form input[type=submit]:hover {
 }
 .secciones .seccion:hover {
   text-align: center;
-  margin: 20px;
-  transition: 1s;
-  transform: scale(1.1);
+  margin: 15px;
+  transition: 0.8s;
+  transform: scale(1.05);
 }
 .secciones .seccion:hover img {
   transform: scale(1.1);
 }
 .secciones .seccion img {
   width: 100%;
-  height: 90%;
+  height: 80%;
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 3%;
-  transition: 1s;
+  transition: 0.8s;
   margin-top: 20px;
+}
+.secciones .seccion a {
+  text-decoration: none;
+  color: inherit;
 }
 .secciones .seccion h2 {
   font-size: 1.5em;
   color: #fff;
-  text-decoration: none;
   font-weight: bold;
 }
 
 main {
-  padding: 50px;
+  padding: 0px;
   text-align: center;
 }
 main .encabezado {
@@ -183,49 +194,52 @@ main .encabezado {
 }
 main .encabezado img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
 }
 main .encabezado p {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 1.2em;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 1.8em;
+  z-index: 10;
 }
 main .quienesSomos {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+main .quienesSomos h1 {
+  margin-bottom: 20px;
+}
+main .quienesSomos .imagen {
+  margin-bottom: 20px;
 }
 main .quienesSomos .imagen img {
-  width: 100%;
-  max-width: 300px;
+  max-width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 main .quienesSomos .texto {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+main .quienesSomos .texto p {
+  font-size: 1em;
+  line-height: 1.6;
 }
 
 /* MEDIA QUERIES */
 /* Estilos para MOBILE */
 @media (max-width: 768px) {
   .encabezado {
-    position: relative;
-    text-align: center;
-    padding: 0;
-    width: 100%;
-  }
-  .encabezado img {
-    display: none;
-  }
-  .encabezado p {
     display: none;
   }
   .secciones {
@@ -264,8 +278,21 @@ main .quienesSomos .texto {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   }
   .productos {
-    grid-template-columns: repeat(1, 1fr);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Se mantiene una columna */
     grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .productos .producto {
+    margin: 0 auto;
+    width: 80%; /* Ajusta el ancho de los productos al 80% */
+    box-sizing: border-box;
+  }
+  .productos .producto img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover;
+    border-radius: 5px;
   }
   form {
     width: 100%;
@@ -278,7 +305,9 @@ main .quienesSomos .texto {
     justify-content: space-between;
   }
   footer .ubicacion,
-  footer .footer-logo,
+  footer .footer-logo {
+    max-height: 50px;
+  }
   footer .social {
     width: 100%;
     text-align: center;
@@ -312,11 +341,11 @@ main .quienesSomos .texto {
     transform: translateY(0);
   }
 }
-.fade-in, header nav ul li a, .productos .producto img, main .encabezado img, main .quienesSomos .imagen img {
+.fade-in, header nav ul li a, .productos .producto img {
   animation: fadeIn 1s ease-out forwards;
 }
 
-.fade-in-delay, header img, .productos .producto p, main .quienesSomos .texto {
+.fade-in-delay, header img, .productos .producto p {
   animation: fadeInDelay 1s ease-out forwards;
 }
 

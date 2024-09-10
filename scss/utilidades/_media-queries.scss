@@ -3,18 +3,7 @@
 /* Estilos para MOBILE */
 @media (max-width: 768px) {
   .encabezado {
-    position: relative;
-    text-align: center;
-    padding: 0;
-    width: 100%;
-
-    img {
-      display: none;
-    }
-
-    p {
-      display: none;
-    }
+    display: none;
   }
 
   .secciones {
@@ -60,8 +49,23 @@
   }
 
   .productos {
-    grid-template-columns: repeat(1, 1fr);
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Se mantiene una columna */
     grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+
+    .producto {
+      margin: 0 auto;
+      width: 80%; /* Ajusta el ancho de los productos al 80% */
+      box-sizing: border-box;
+
+      img {
+        width: 100%;
+        height: auto; /* Mantiene la proporción de la imagen */
+        object-fit: cover;
+        border-radius: 5px;
+      }
+    }
   }
 
   form {
@@ -76,7 +80,10 @@
     justify-content: space-between;
 
     .ubicacion,
-    .footer-logo,
+    .footer-logo {
+      max-height: 50px;
+    }
+
     .social {
       width: 100%;
       text-align: center;
